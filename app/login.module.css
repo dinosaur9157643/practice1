@@ -1,0 +1,99 @@
+/* Container with gradient background */
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Form card */
+.form {
+  background-color: #ffffff;
+  padding: 3rem 2.5rem;
+  border-radius: 12px;
+  width: 350px;
+  max-width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Title */
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+/* Input fields */
+.input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
+}
+
+/* Button */
+.button {
+  width: 100%;
+  padding: 12px;
+  background-color: #667eea;
+  
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: #5563d6;
+  transform: translateY(-2px);
+}
+
+/* Small link */
+.link {
+  display: block;
+  margin-top: 1rem;
+  color: #667eea;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.switchText {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+}
+
+.switchLink {
+  color: #667eea;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.switchLink:hover {
+  text-decoration: underline;
+}
