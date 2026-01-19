@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Dashboard from "./Dashboard";
+import "./dashboard.module.css";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -14,8 +16,7 @@ export default function DashboardPage() {
         const res = await fetch(
           "http://localhost/backend/checkAuth.php",
           {
-            method: "GET",
-            credentials: "include", // ✅ must include session cookie
+            credentials: "include",
           }
         );
 
@@ -30,8 +31,7 @@ export default function DashboardPage() {
         } else {
           router.push("/login");
         }
-      } catch (err) {
-        console.error(err);
+      } catch {
         router.push("/login");
       } finally {
         setLoading(false);
@@ -42,27 +42,14 @@ export default function DashboardPage() {
   }, [router]);
 
   const handleLogout = async () => {
-    try {
-      await fetch(
-        "http://localhost/backend/logout.php",
-        {
-          method: "POST",
-          credentials: "include",
-        }
-      );
-      router.push("/login");
-    } catch (err) {
-      console.error(err);
-    }
+    await fetch("http://localhost/backend/logout.php", {
+      method: "POST",
+      credentials: "include",
+    });
+    router.push("/login");
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p className="loading">Loading...</p>;
 
-  return (
-    <div style={{ padding: "2rem" }}>
-      <h1>Welcome, User #{userId}</h1>
-      <p>You are successfully logged in.</p>
-      <button onClick={handleLogout}>Logout</button>
-    </div>
-  );
+  return <Dashboard userId={userId} onLogout={handleLogout} />;
 }
